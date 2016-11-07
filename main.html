@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+
+
+	$(document).ready(function(){
+		$.ajax({url: "./get_count.php?id=1", success: function(result)  { $("#div1").html(result); }  });
+		$.ajax({url: "./get_count.php?id=2", success: function(result)  { $("#div2").html(result); }  });
+		
+		$("#button1").click(function() { $.ajax({url: "./increment_logic.php?id=1", success: function(result)  { $("#div1").html(result); }  }); });
+		$("#button2").click(function() { $.ajax({url: "./increment_logic.php?id=2", success: function(result)  { $("#div2").html(result); }  }); });
+		
+	});
+	
+</script>
+</head>
+<body>
+
+<h2>Vote for the best snack</h2>
+
+<table border="1">
+
+	<th> Snack </th>
+	<th># of votes</th>
+	<th>Action</th>
+	
+	<tr>	
+	<td align="center" ><IMG SRC="./pics/chips.jpg" ALT="Chips"  style="width:130px;height:150px;"></td>
+	<td align="center" id="div1"></td>
+	<td><button  id="button1">Vote Up!</button></td></tr>
+
+	<tr>	
+	<td align="center" ><IMG SRC="./pics/choco_cherry_peach.jpg" ALT="Chips"  style="width:330px;height:150px;"></td>
+	<td align="center" id="div2"></td>
+	<td><button  id="button2">Vote Up!</button></td></tr>
+	
+</table>
+
+</body>
+</html>
